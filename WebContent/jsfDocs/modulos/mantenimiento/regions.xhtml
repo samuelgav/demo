@@ -1,9 +1,21 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<ui:composition template="/WEB-INF/plantillas/plantilla.xhtml" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+            <ui:define name="content">
 
-	<ui:composition template="/WEB-INF/plantillas/plantilla.xhtml">
-	</ui:composition>
-</html>
+			                <h:form>
+							  <b:dataTable value="#{carPool.carPool}"
+							               var="car">
+							    <b:dataTableColumn value="#{car.brand}" />
+							    <b:dataTableColumn value="#{car.type}" />
+							    <b:dataTableColumn value="#{car.brand}" />
+							    <b:dataTableColumn value="#{car.type}" />
+							  </b:dataTable>
+							</h:form>
+                
+            </ui:define>
+        </ui:composition>

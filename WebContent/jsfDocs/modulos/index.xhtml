@@ -7,14 +7,15 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
             <ui:define name="content">
 
-                <h1>Examples</h1>
-                <hr/>
-                <p>These BootsFaces examples are ports of Bootstrap 3 examples.</p>
-                <p>They are built using JSF and BootsFaces's components, to show the framework in action and how it can be used to build your pages.</p>
-                <p>You can get them as a point of start for developing your projects.</p>
-                
-                <h1>Demo Applications</h1>
-                <p>Coming Back soon.</p>
+                <b:jumbotron>
+				  <h1>Hello, world!</h1>
+				  <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+				  <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+				</b:jumbotron>
+				
+				<h:form>
+					<b:commandButton look="primary" value="Regions" action="#{indexBean.redireccionarRegions}" />
+				</h:form>
                 
             </ui:define>
         </ui:composition>
