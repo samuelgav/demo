@@ -8,12 +8,10 @@
             <ui:define name="content">
 
 			                <h:form>
-							  <b:dataTable value="#{carPool.carPool}"
-							               var="car">
-							    <b:dataTableColumn value="#{car.brand}" />
-							    <b:dataTableColumn value="#{car.type}" />
-							    <b:dataTableColumn value="#{car.brand}" />
-							    <b:dataTableColumn value="#{car.type}" />
+							  <b:dataTable value="#{regionsBean.listRegions}"
+							               var="item">
+							    <b:dataTableColumn value="#{item.region_id}" />
+							    <b:dataTableColumn value="#{item.region_name}" />							    
 							  </b:dataTable>
 							</h:form>
                 

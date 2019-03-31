@@ -9,7 +9,7 @@
 	</settings>
 
 	<typeAliases>		
-		<package name="pe.gob.sunafil.notiaccidente.bean" />		
+		<package name="pe.com.demo.bean" />		
 	</typeAliases>
 </configuration>
 
