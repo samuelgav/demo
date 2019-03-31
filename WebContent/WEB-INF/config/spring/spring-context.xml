@@ -19,18 +19,15 @@
 	<import resource="conexion-cobranza.xml" />
 	 -->
 	
-	<import resource="conexion-notiaccidente.xml" />
+	<import resource="conexion-hr.xml" />
 	
-	<import resource="conexion-siit.xml" />
 	
-	<import resource="conexion-notificacion.xml" />
-
 	<!-- <import resource="spring-security.xml" /> -->
 
 	<!-- <import resource="spring-quartz.xml" /> -->
 
 	<!-- ACTIVAR ANALISIS DE COMPONENTES (ESTO NO PERMITE EXPLORACION DE MAPPERS!) -->
-	<context:component-scan base-package="pe.gob.sunafil.notiaccidente" />
+	<context:component-scan base-package="pe.com.demo" />
 
 	<!-- <aop:aspectj-autoproxy /> -->
 

@@ -9,11 +9,7 @@
 	</settings>
 
 	<typeAliases>		
-		<package name="pe.gob.sunafil.notiaccidente.bean.siit" />
-		<package name="pe.gob.sunafil.notiaccidente.bean.notificacion" />
-		<package name="pe.gob.sunafil.notiaccidente.bean.simintra1" />
-		<package name="pe.gob.sunafil.notiaccidente.bean.tramite" />
-		<package name="pe.gob.sunafil.notiaccidente.bean.acsys" />
+		<package name="pe.gob.sunafil.notiaccidente.bean" />		
 	</typeAliases>
 </configuration>
 

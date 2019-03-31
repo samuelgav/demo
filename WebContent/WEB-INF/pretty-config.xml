@@ -4,88 +4,16 @@
 	elementFormDefault="qualified" targetNamespace="http://ocpsoft.com/prettyfaces/3.3.3"
 	xmlns="http://ocpsoft.com/prettyfaces/3.3.3">
 
-	<!-- ========== ACCESOS ========== -->
 
-	<url-mapping id="login">
+	<url-mapping id="index">
 		<pattern value="/" />
-		<view-id value="/faces/jsfDocs/modulos/seguridad/login.xhtml" />
+		<view-id value="/faces/jsfDocs/modulos/index.xhtml" />
 	</url-mapping>
 
-	<url-mapping id="opciones">
-		<pattern value="/opciones" />
-		<view-id value="/faces/jsfDocs/modulos/seguridad/opciones.xhtml" />
+	<url-mapping id="regions">
+		<pattern value="/regions" />
+		<view-id value="/faces/jsfDocs/modulos/mantenimiento/regions.xhtml" />
 	</url-mapping>
 
-	<url-mapping id="contrasena">
-		<pattern value="/mantenimiento/contrasena" />
-		<view-id value="/faces/jsfDocs/modulos/seguridad/contrasena.xhtml" />
-	</url-mapping>
-	
-	<url-mapping id="cargando">
-		<pattern value="/cargando" />
-		<view-id value="/faces/jsfDocs/modulos/movimiento/descargo/descargoNotificacion.xhtml" />
-		<action>#{generalBean.redDescargoNotificacion}</action>
-	</url-mapping>
-<!--  
-	<url-mapping id="principal">
-		<pattern value="/principal" />
-		<view-id value="/faces/jsfDocs/principal.xhtml" />	
-		<action>#{general.redDescargoNotificacion}</action>	
-	</url-mapping>
- -->	
-	<url-mapping id="descargo">
-		<pattern value="/descargo" />
-		<view-id value="/faces/jsfDocs/modulos/movimiento/descargo/descargoNotificacion.xhtml" />
-	</url-mapping>
-	
-
-
-<!-- ========== ACCIDENTE MORTAL ========== -->
-
-	<url-mapping id="regAccidente">
-		<pattern value="/accidente" />
-		<view-id value="/faces/jsfDocs/modulos/movimiento/comiteseguridad/accidente.xhtml" />
-	</url-mapping>
-	
-	<url-mapping id="regReporteAccidenteMortal">
-		<pattern value="/ReporteAccidenteMortal" />
-		<view-id value="/faces/jsfDocs/modulos/movimiento/comiteseguridad/reporteAccidenteMortal.xhtml" />
-	</url-mapping>
-	
-<!-- ========== ACCIDENTE DE TRABAJO ========== -->	
-
-	<url-mapping id="regAccidenteTrabajo">
-		<pattern value="/accidenteTrabajo" />
-		<view-id value="/faces/jsfDocs/modulos/movimiento/comiteseguridad/accidenteTrabajo.xhtml" />
-	</url-mapping>
-	
-	<url-mapping id="regDetalleAccidenteTrabajo">
-		<pattern value="/DetalleAccidenteTrabajo" />
-		<view-id value="/faces/jsfDocs/modulos/movimiento/comiteseguridad/detalleAccidenteTrabajo.xhtml" />
-	</url-mapping>
-	
-<!-- ========== ENFERMEDADES OCUPACIONALES ========== -->	
-
-	<url-mapping id="redEnfermedadOcupacional">
-		<pattern value="/EnfermedadOcupacional" />
-		<view-id value="/faces/jsfDocs/modulos/movimiento/comiteseguridad/enfermedadOcupacional.xhtml" />
-	</url-mapping>
-	
-	<url-mapping id="redDetalleEnfermedadOcupacional">
-		<pattern value="/DetalleEnfermedadOcupacional" />
-		<view-id value="/faces/jsfDocs/modulos/movimiento/comiteseguridad/detalleEnfermedadOcupacional.xhtml" />
-	</url-mapping>	
-	
-<!-- ========== INCIDENTE PELIGROSO ========== -->	
-
-	<url-mapping id="listaIncidentePeligroso">
-		<pattern value="/listaIncidentePeligroso" />
-		<view-id value="/faces/jsfDocs/modulos/movimiento/comiteseguridad/incidentenPeligroso.xhtml" />
-	</url-mapping>
-	
-	<url-mapping id="redDetellaIncidentePeligroso">
-		<pattern value="/DetellaIncidentePeligroso" />
-		<view-id value="/faces/jsfDocs/modulos/movimiento/comiteseguridad/detalleIncidentePeligroso.xhtml" />
-	</url-mapping>		
 
 </pretty-config>

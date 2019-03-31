@@ -6,30 +6,30 @@
 
 	<!-- DATABASE AND DATASOURCE -->
 
-	<bean id="dsNotifsys"
+	<bean id="dsHr"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-		<property name="url" value="jdbc:oracle:thin:@10.1.200.30:1521:DESASUNA" />
-		<property name="username" value="NOTIFSYS" /> 
-		<property name="password" value="notifsys" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<property name="username" value="hr" /> 
+		<property name="password" value="hr" />
 	</bean>
 
-	<bean id="tmNotifsys"
+	<bean id="tmHr"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dsNotifsys" />
-		<qualifier value="Notifsys" />
+		<property name="dataSource" ref="dsHr" />
+		<qualifier value="Hr" />
 	</bean>
 
-	<bean id="ssfNotifsys" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dsNotifsys" />
+	<bean id="ssfHr" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dsHr" />
 		<property name="configLocation" value="WEB-INF/config/mybatis/mybatis-config.xml" />
 		<property name="mapperLocations"
-			value="classpath*:pe/gob/sunafil/notiaccidente/dao/notificacion/mapper/*.xml" />
+			value="classpath*:pe/com/demo/dao/mapper/*.xml" />
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="pe.gob.sunafil.notiaccidente.dao.notificacion" />
-		<property name="sqlSessionFactoryBeanName" value="ssfNotifsys" />
+		<property name="basePackage" value="pe.com.demo.dao" />
+		<property name="sqlSessionFactoryBeanName" value="ssfHr" />
 	</bean>
 
 </beans>
