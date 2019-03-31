@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{yyyy-MM-dd HH:mm:ss,SSS} [%-10t] %-5p (%c{2}) %m - [linea:%L]%n" />
+		</layout>
+	</appender>
+
+	<appender name="DAYFILE" class="org.apache.log4j.DailyRollingFileAppender">
+		<!-- param name="File" value="${jboss.server.log.dir}/logs/cobranzas.log" 
+			/ -->			
+		
+		<param name="File" value="${com.sun.aas.instanceRoot}/logs/eventolog.log" />
+		
+		
+		<!-- <param name="File" value="base.log" /> -->
+		<param name="DatePattern" value="'.'yyyyMMdd" />
+		<param name="Append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{yyyy-MM-dd HH:mm:ss,SSS} [%-10t] %-5p (%c{2}) %m - [linea:%L]%n" />
+		</layout>
+	</appender>
+
+	<root>
+		<!-- <priority value="DEBUG" /> -->
+		<!-- <priority value="TRACE" /> -->
+		<priority value="INFO" />
+		<appender-ref ref="DAYFILE" />
+		<appender-ref ref="CONSOLE" />
+	</root>
+
+	<!-- <category name="com.mybatis"> -->
+	<!-- <priority value="DEBUG" /> -->
+	<!-- </category> -->
+
+	<!-- <category name="org.apache.ibatis"> -->
+	<!-- <priority value="DEBUG" /> -->
+	<!-- </category> -->
+
+</log4j:configuration>

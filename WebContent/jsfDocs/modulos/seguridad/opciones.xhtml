@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui">
+
+<h:head>
+	<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+	<title>#{sys['nombre']}</title>
+
+	<link rel="stylesheet" href="#{request.contextPath}/resources/css/login.css" />
+	<link rel="shortcut icon" href="#{request.contextPath}/resources/images/principal/favicon.png" type="image/x-icon" />
+</h:head>
+
+<h:body>
+
+	<script type="text/javascript">
+		$.blockUI.defaults.message = '<h2>Espere por favor...</h2>';
+	</script>
+
+	<h:form id="formLogin">
+
+		<b:container styleClass="contenedorLogin">
+			<b:panelGrid colSpans="12" small-screen="8" tiny-screen="12"
+				large-screen="8" offset-sm="2" offset-lg="2">
+
+				<b:image name="images/principal/logincabecera.png" small-screen="12"
+					tiny-screen="12" large-screen="12" style="padding: 0;margin: 0;" />
+
+			</b:panelGrid>
+
+			<b:panelGrid colSpans="12" tiny-screen="12" large-screen="8"
+				small-screen="8" offset-sm="2" offset-lg="2">
+				<b:panel title="#{sys['nombre']}" collapsible="false" look="primary"
+					styleClass="panelmedio">
+
+					<b:row>
+						<b:column small-screen="8" large-screen="8" offset="3">
+							<b:selectOneMenu value="#{loginBean.codAcceso}" required="true"
+								label="Seleccione un Perfil:">
+								<f:selectItem itemLabel="Administrador" itemValue="1" />
+								<f:selectItem itemLabel="Operador" itemValue="2" />
+								<f:selectItem itemLabel="Consultor" itemValue="3" />
+							</b:selectOneMenu>
+						</b:column>
+					</b:row>
+					<b:row>
+						<b:column small-screen="8" large-screen="8" offset="5">
+							<b:commandButton id="btnIngresar" value="Ingresar"
+								process=":formLogin" action="#{loginBean.accesoSistema}"
+								ajax="true" look="danger" small-screen="4" tiny-screen="12"
+								large-screen="4" styleClass="btnLogin" />
+						</b:column>
+					</b:row>
+
+				</b:panel>
+			</b:panelGrid>
+
+		</b:container>
+
+	</h:form>
+
+</h:body>
+</html>

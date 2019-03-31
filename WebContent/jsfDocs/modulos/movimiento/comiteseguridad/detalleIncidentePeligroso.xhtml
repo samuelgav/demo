@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui">
+
+<ui:composition template="/WEB-INF/plantillas/plantilla.xhtml">
+	<ui:define name="contenido">
+	  <b:form>  	
+		<b:panel title="DETALLE DE INCIDENTE PELIGROSO"      					
+    					 collapsible="false"
+    					 look="primary"
+    					 styleClass="panelmedio"
+    					 >	
+					<b:row>
+						<b:column 	mediumScreen="10"
+		    						largeScreen="10"
+		    						offset-lg="1"
+		    						offset-md="1">
+							
+							<b:panel 	look="primary"
+										collapsible="false"
+										title="Datos del Incidente">
+									
+									<b:row>
+										<b:column span="2">
+											<p:outputLabel value="Fecha y Hora del Incidente" />
+										</b:column>
+										<b:column span="3">
+											<h:outputLabel value="#{incidentePeligrosoBean.detalleIncidentePeligroso.V_FECINCI}" />
+										</b:column>
+									</b:row>		
+									<b:row>
+										<b:column span="2">
+											<p:outputLabel value="Tipo Incidente Peligroso" />
+										</b:column>
+										<b:column span="3">
+											<h:outputLabel value="#{incidentePeligrosoBean.detalleIncidentePeligroso.V_CODTINCPEL}" />
+										</b:column>
+									</b:row>	
+									<b:row>
+										<b:column span="2">
+											<p:outputLabel value="Detalle del Incidente" />
+										</b:column>
+										<b:column span="3">
+											<h:outputLabel value="#{incidentePeligrosoBean.detalleIncidentePeligroso.V_DESINCI}" />
+										</b:column>
+									</b:row>									
+									
+							</b:panel>
+						</b:column>			
+					</b:row> 
+					<b:row>
+						<b:column 	mediumScreen="10"
+		    						largeScreen="10"
+		    						offset-lg="1"
+		    						offset-md="1">
+							
+							<b:panel 	look="primary"
+										collapsible="false"
+										title="Datos de la Empresa Usuaria">
+									<b:row>
+										<b:column span="2">
+											<p:outputLabel value="RUC y Razón Social" />
+										</b:column>
+										<b:column span="3">
+											<h:outputLabel value="#{incidentePeligrosoBean.detalleIncidentePeligroso.V_RAZSOC2}" />
+										</b:column>
+									</b:row>	
+									<b:row>
+										<b:column span="2">
+											<p:outputLabel value="Actividad" />
+										</b:column>
+										<b:column span="3">
+											<h:outputLabel value="#{incidentePeligrosoBean.detalleIncidentePeligroso.V_CODCIIUEMP2}" />
+										</b:column>
+									</b:row>
+									<b:row>
+										<b:column span="2">
+											<p:outputLabel value="Lugar" />
+										</b:column>
+										<b:column span="3">
+											<h:outputLabel value="#{incidentePeligrosoBean.detalleIncidentePeligroso.V_CODDISEMP2}" />
+										</b:column>
+									</b:row>
+									<b:row>
+										<b:column span="2">
+											<p:outputLabel value="Domicilio" />
+										</b:column>
+										<b:column span="3">
+											<h:outputLabel value="#{incidentePeligrosoBean.detalleIncidentePeligroso.V_DESDOMEMP2}" />
+										</b:column>
+									</b:row>
+									<b:row>
+										<b:column span="2">
+											<p:outputLabel value="Teléfono" />
+										</b:column>
+										<b:column span="3">
+											<h:outputLabel value="#{incidentePeligrosoBean.detalleIncidentePeligroso.V_NROTELEMP2}" />
+										</b:column>
+									</b:row>
+									<b:row>
+										<b:column span="2">
+											<p:outputLabel value="N°Hombres" />
+										</b:column>
+										<b:column span="2">
+											<h:outputLabel value="#{incidentePeligrosoBean.detalleIncidentePeligroso.V_NROTRAHOMEMP2}" />
+										</b:column>
+										<b:column span="2">
+											<p:outputLabel value="N°Mujeres" />
+										</b:column>
+										<b:column span="2">
+											<h:outputLabel value="#{incidentePeligrosoBean.detalleIncidentePeligroso.V_NROTRAMUJEMP2}" />
+										</b:column>
+										
+									</b:row>
+							</b:panel>
+						</b:column>				
+					</b:row>
+					
+					<b:row>
+						<b:column 	mediumScreen="10"
+		    						largeScreen="10"
+		    						offset-lg="1"
+		    						offset-md="1">
+							
+							<b:panel 	look="primary"
+										collapsible="false"
+										title="Empleador (Empresa que Contrató al Trabajador)">
+									<b:row>
+										<b:column span="2">
+											<p:outputLabel value="RUC Y RAZÓN SOCIAL" />
+										</b:column>
+										<b:column span="3">
+											<h:outputLabel value="#{incidentePeligrosoBean.detalleIncidentePeligroso.V_RAZSOC}" />
+										</b:column>
+									</b:row>	
+									<b:row>
+										<b:column span="2">
+											<p:outputLabel value="Actividad" />
+										</b:column>
+										<b:column span="3">
+											<h:outputLabel value="#{incidentePeligrosoBean.detalleIncidentePeligroso.V_CODCIIUEMP}" />
+										</b:column>
+									</b:row>
+									<b:row>
+										<b:column span="2">
+											<p:outputLabel value="Lugar" />
+										</b:column>
+										<b:column span="3">
+											<h:outputLabel value="#{incidentePeligrosoBean.detalleIncidentePeligroso.V_CODDISEMP}" />
+										</b:column>
+									</b:row>
+									<b:row>
+										<b:column span="2">
+											<p:outputLabel value="Domicilio" />
+										</b:column>
+										<b:column span="3">
+											<h:outputLabel value="#{incidentePeligrosoBean.detalleIncidentePeligroso.V_DESDOMEMP}" />
+										</b:column>
+									</b:row>
+									<b:row>
+										<b:column span="2">
+											<p:outputLabel value="Teléfono" />
+										</b:column>
+										<b:column span="3">
+											<h:outputLabel value="#{incidentePeligrosoBean.detalleIncidentePeligroso.V_NROTELEMP}" />
+										</b:column>
+									</b:row>
+									<b:row>
+										<b:column span="2">
+											<p:outputLabel value="N°Hombres" />
+										</b:column>
+										<b:column span="2">
+											<h:outputLabel value="#{incidentePeligrosoBean.detalleIncidentePeligroso.V_NROTRAHOMEMP}" />
+										</b:column>
+										<b:column span="2">
+											<p:outputLabel value="N°Mujeres" />
+										</b:column>
+										<b:column span="2">
+											<h:outputLabel value="#{incidentePeligrosoBean.detalleIncidentePeligroso.V_NROTRAMUJEMP}" />
+										</b:column>
+										<b:column span="2">
+											<p:outputLabel value="Correo" />
+										</b:column>
+										<b:column span="2">
+											<h:outputLabel value="#{incidentePeligrosoBean.detalleIncidentePeligroso.V_COREMP}" />
+										</b:column>
+									</b:row>
+							</b:panel>											
+					</b:column>
+					</b:row>
+					<b:row >
+						<b:column 
+								  mediumScreen="10"
+		    						largeScreen="10"
+		    						offset-lg="1"
+		    						offset-md="1"	>
+							<h:outputLabel value="Fuente: Sistema de Accidentes de Trabajo-MTPE" style="font-weight: bold !important; font-size: 14px !important;"/>
+						</b:column>
+					</b:row>
+					<b:row>
+						<b:column 	mediumScreen="10"
+		    						largeScreen="10"
+		    						offset-lg="1"
+		    						offset-md="1">
+							<b:commandButton 	look="primary"
+												value="Regresar"
+												action="#{incidentePeligrosoBean.regresarReporte}"
+												mediumScreen="3"
+					    						largeScreen="3"
+					    						tinyScreen="12"
+					    						offset-lg="4"
+					    						offset-md="4"/>
+						</b:column>
+					</b:row>					
+			</b:panel>
+		</b:form>	
+	</ui:define>
+</ui:composition>
+</html>

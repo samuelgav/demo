@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+
+	<!-- DATABASE AND DATASOURCE -->
+
+	<bean id="dsNotifsys"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@10.1.200.30:1521:DESASUNA" />
+		<property name="username" value="NOTIFSYS" /> 
+		<property name="password" value="notifsys" />
+	</bean>
+
+	<bean id="tmNotifsys"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dsNotifsys" />
+		<qualifier value="Notifsys" />
+	</bean>
+
+	<bean id="ssfNotifsys" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dsNotifsys" />
+		<property name="configLocation" value="WEB-INF/config/mybatis/mybatis-config.xml" />
+		<property name="mapperLocations"
+			value="classpath*:pe/gob/sunafil/notiaccidente/dao/notificacion/mapper/*.xml" />
+	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="pe.gob.sunafil.notiaccidente.dao.notificacion" />
+		<property name="sqlSessionFactoryBeanName" value="ssfNotifsys" />
+	</bean>
+
+</beans>

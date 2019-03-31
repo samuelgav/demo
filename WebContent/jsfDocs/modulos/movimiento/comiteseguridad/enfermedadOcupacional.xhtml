@@ -1,0 +1,277 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui">
+
+<ui:composition template="/WEB-INF/plantillas/plantilla.xhtml">
+
+	<ui:define name="contenido">
+			
+		<b:form id="formAccidente" 
+				enctype="multipart/form-data"
+				acceptcharset="ISO-8859-1">
+			<b:container >
+				<b:panel title="REPORTE DE ENFERMEDAD OCUPACIONAL"      					
+    					 collapsible="false"
+    					 look="primary"
+    					 styleClass="panelmedio"
+    					 >					
+		    
+		    <b:row >
+		    	<b:column   mediumScreen="10"
+		    				largeScreen="10"
+		    				offset-lg="1"
+		    				offset-md="1">
+		    		<b:panel 	look="primary"		    					
+		    					collapsible="false"
+		    					id="panelFiltro">
+		    					
+			    			<b:row style="margin-left:2px;margin-bottom: 15px">						
+								<b:column 	span="2"
+											offset-lg="1"
+		    							  	offset-md="1">
+									<h:outputLabel value="Fecha Inicio:" />
+								</b:column>
+								<b:column span="2">
+									<b:dateTimePicker 	value="#{enfermedadOcupacionalBean.filtroAccidente.fechaInicio}"
+														format="DD/MM/YYYY" 
+														required="true"
+														requiredMessage="Estimado Usuario, por favor ingrese la fecha de inicio."/>
+								</b:column>	
+								<b:column span="2">
+									<h:outputLabel value="Fecha Fin:" />
+								</b:column>
+								<b:column span="2">
+									<b:dateTimePicker 	value="#{enfermedadOcupacionalBean.filtroAccidente.fechaFin}"
+														format="DD/MM/YYYY" 
+														required="true"
+														requiredMessage="Estimado Usuario, por favor ingrese la fecha de fin."/>
+								</b:column>						
+							</b:row>
+							
+							<b:row style="margin-left:2px;">						
+								<b:column 	span="2"
+											offset-lg="1"
+		    							  	offset-md="1">
+									<h:outputLabel value="Departamento:" />
+								</b:column>
+								<b:column span="2">
+									<b:selectOneMenu value="#{enfermedadOcupacionalBean.filtroAccidente.departamento}">
+										<f:selectItem 	itemLabel="Seleccione"
+														itemValue=""/>
+										<f:selectItems 	value="#{generalBean.listaDepartamentos}"
+														var="item"
+														itemValue="#{item.vCoddep}"
+														itemLabel="#{item.vDesdep}"/>				
+									</b:selectOneMenu>
+									 
+								</b:column>	
+													
+							</b:row>	
+							
+							<b:row 	style="margin-left:2px;">						
+								<b:column span="2"
+										  offset-lg="1"
+		    							  offset-md="1">
+									<h:outputLabel value="Nombres:" />
+								</b:column>
+								<b:column span="2">
+									<b:inputText	 	value="#{enfermedadOcupacionalBean.filtroAccidente.nombres}"
+														/>
+								</b:column>	
+								<b:column span="2">
+									<h:outputLabel value="Apellido Paterno:" />
+								</b:column>
+								<b:column span="2">
+									<b:inputText 		value="#{enfermedadOcupacionalBean.filtroAccidente.apePaterno}"
+														/>
+								</b:column>						
+							</b:row>	
+							
+							<b:row 	style="margin-left:2px;">						
+								<b:column span="2"
+										  offset-lg="1"
+		    							  offset-md="1">
+									<h:outputLabel value="Apellido Materno:" />
+								</b:column>
+								<b:column span="2">
+									<b:inputText	 	value="#{enfermedadOcupacionalBean.filtroAccidente.apeMaterno}"
+														/>
+								</b:column>	
+								<b:column span="2">
+									<h:outputLabel value="N° de Documento:" />
+								</b:column>
+								<b:column span="2">
+									<b:inputText	 	value="#{enfermedadOcupacionalBean.filtroAccidente.dni}"
+														maxlength="8">
+										<p:keyFilter regEx="/[\d]/" />				
+									</b:inputText>					
+								</b:column>															
+							</b:row>
+							
+							<b:row 	style="margin-left:2px;">						
+								<b:column span="2"
+										  offset-lg="1"
+		    							  offset-md="1">
+									<h:outputLabel value="RUC" />
+								</b:column>
+								<b:column span="2">
+									<b:inputText	 	value="#{enfermedadOcupacionalBean.filtroAccidente.ruc}"
+														maxlength="11">
+										<p:keyFilter regEx="/[\d]/" />				
+									</b:inputText>				
+								</b:column>	
+								<b:column span="2">
+									<h:outputLabel value="Razón Social:" />
+								</b:column>
+								<b:column span="2">
+									<b:inputText	 	value="#{enfermedadOcupacionalBean.filtroAccidente.razonSocial}" 
+														/>
+								</b:column>															
+							</b:row>																						    	
+		    		</b:panel>
+		    	</b:column>
+		    </b:row>
+		    <b:row >
+		    	<b:column 	mediumScreen="3"
+		    				largeScreen="3"
+		    				tinyScreen="12"
+		    				offset-lg="1"
+		    				offset-md="1">	
+		    		<b:commandButton 	look="primary"
+		    							value="Buscar"
+		    							actionListener="#{enfermedadOcupacionalBean.buscarEnfermedadOcupacional}"
+		    							update=":formAccidente:dtListaEnfermedadesOcupacionales,:formAccidente:msgAccidente"
+		    							tinyScreen="12"
+		    							mediumScreen="7"
+		    							largeScreen="7"
+		    							offset-lg="4"
+		    							offset-md="4"
+		    							
+		    							/>
+		    	</b:column>	
+		    	 <b:column  mediumScreen="3"
+		    				largeScreen="3"
+		    				tinyScreen="12">
+		    			<b:commandButton 	look="primary"
+		    							value="Limpiar"
+		    							actionListener="#{enfermedadOcupacionalBean.limpiarFormulario}"
+		    							update=":formAccidente"			    							    							
+		    							tinyScreen="12"
+		    							mediumScreen="7"
+		    							largeScreen="7"
+		    							offset-lg="4"
+		    							offset-md="4"
+		    							immediate="true"
+		    							process="@this"
+		    							/>
+		    	 </b:column>				 		
+		    	
+		    	 <b:column  mediumScreen="3"
+		    				largeScreen="3"
+		    				tinyScreen="12"> 
+		    	 
+		    	 	<b:commandButton 	look="primary"
+		    							value="Regresar"
+		    							action="#{generalBean.redPrincipal}"
+		    							tinyScreen="12"
+		    							mediumScreen="7"
+		    							largeScreen="7"
+		    							offset-lg="4"
+		    							offset-md="4"
+		    							immediate="true"
+		    							process="@this"
+		    							/>	    							
+		    							
+		    	 </b:column>	
+		    		    	
+		    </b:row>	
+		  	  
+		     <b:row>
+		    	<b:column   mediumScreen="10"
+		    				largeScreen="10"
+		    				tinyScreen="12"
+		    				offset-lg="1"
+		    				offset-md="1">
+		    		<b:messages id="msgAccidente" escape="false"/>
+		    	</b:column>
+		    </b:row> 
+		 	<b:row>
+		 		<b:column   mediumScreen="10"
+		    				largeScreen="10"
+		    				tinyScreen="12"
+		    				offset-lg="1"
+		    				offset-md="1">
+				 	<p:separator/>		
+		 		</b:column>
+		 	</b:row>
+		 	<b:row>
+								<b:column 	mediumScreen="10"
+		    								largeScreen="10"
+		    								tinyScreen="12"
+		    								offset-lg="1"
+		    								offset-md="1">
+									<b:dataTable  	id="dtListaEnfermedadesOcupacionales"
+													striped="true" 
+													lang="es" 
+													responsive="true" 
+													style="width: 100%;"
+													value="#{enfermedadOcupacionalBean.listaEnfermedadOcupacional}"
+													var="item"
+													paginated="true"
+													searching="false"
+													page-length="10"
+													>
+		
+										
+										<b:dataTableColumn 	label="Lugar"  
+															value="#{item.UBIGEOLUGARTRA}"/>
+										<b:dataTableColumn 	label="Dirección" 
+															value="#{item.DIRECEMPRESAUSUARIA}"/>
+										<b:dataTableColumn 	label="Fecha y hora de registro en el SAT"  
+															value="#{item.FECREG}"/>
+										<b:dataTableColumn 	label="Fecha de ingreso al centro de atención"  
+															value="#{item.FECHOSP}"/>
+										<b:dataTableColumn 	label="Accidentado"  
+															value="#{item.NOMTRA}"/>
+										<b:dataTableColumn 	label="Sector"  
+															value="#{item.CIIUEMPUSUARIA}"/>
+										<b:dataTableColumn 	label="Empresa usuaria"  
+															value="#{item.RAZSOCIALEMPUSU}"/>
+															
+										<b:dataTableColumn 	label="INSSI?"  
+															>
+														<b:image 	name="images/iconos/icon-hidrocarburo.png" 												
+																	rendered="#{item.FLGINSSI=='S'}"
+																	mediumScreen="12"
+																	largeScreen="12"/>	
+										</b:dataTableColumn>
+										<b:dataTableColumn label="Ver detalle" >
+											<b:commandButton 	icon-awesome="fa-search-plus"
+																look="primary"
+																action="#{enfermedadOcupacionalBean.visualizarDetalleEnfermedadOcupacional(item)}"
+																immediate="true"/>
+										</b:dataTableColumn>
+										
+									 </b:dataTable>
+									 	
+								</b:column>
+							</b:row>
+			
+		</b:panel>
+				
+
+			</b:container>
+		</b:form>
+
+		
+
+
+
+	</ui:define>
+</ui:composition>
+</html>

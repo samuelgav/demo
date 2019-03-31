@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui" xmlns:b="http://bootsfaces.net/ui">
+
+<h:head>
+	<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+	<title>#{sys['nombre']}</title>
+
+	<link rel="stylesheet" href="#{request.contextPath}/resources/lte2.3/dist/css/AdminLTE.css" />
+	<link rel="stylesheet" href="#{request.contextPath}/resources/lte2.3/dist/css/skins/_all-skins.min.css" />
+	<link rel="stylesheet" href="#{request.contextPath}/resources/css/estilos.css" />
+	<link rel="shortcut icon" href="#{request.contextPath}/resources/images/principal/favicon.png" type="image/x-icon" />
+</h:head>
+
+<h:body class="hold-transition skin-blue sidebar-mini" onload="javascript:window.history.forward(1);">
+
+	<script src="#{request.contextPath}/resources/lte2.3/bootstrap/js/bootstrap.min.js" />
+	<script src="#{request.contextPath}/resources/lte2.3/dist/js/app.js" />
+	<script src="#{request.contextPath}/resources/js/util.js" />
+
+	<div class="wrapper">
+		<header >
+			<b:row>
+				<b:column>
+						<b:image 	name="images/principal/cabecera.png" 
+								small-screen="12" 
+							  	tiny-screen="12"
+						      	large-screen="12"										
+						style="padding: 0;margin: 0"
+						/>
+				</b:column>
+			</b:row>	
+			<b:row>
+				<b:column>
+					<ui:include src="/jsfDocs/includes/opcion-lateral-der.xhtml"/>	 
+				</b:column>
+			</b:row>
+		</header>
+		<!-- Content Wrapper. Contains page content -->
+		<div  id="contenido">
+			<section>
+				<ui:insert name="contenido">
+				</ui:insert>
+			</section>
+		</div>
+
+
+		
+			<b:row style="margin-top: 30px !important; padding: 0px !important;">
+					<b:column styleClass="piePagina"  style="margin-top: 0px !important;">
+						<span>
+							Elaborado por la Oficina General de Tecnologías de la Información y Comunicaciones - SUNAFIL
+						</span>						
+					</b:column>
+				</b:row>
+		
+
+	</div>
+	
+	<h:form>
+		<p:idleMonitor timeout="#{session.maxInactiveInterval * 1000}"
+			onidle="PF('dlgSesion').show();">
+		</p:idleMonitor>
+	</h:form>
+
+	<p:dialog header="Sesión Caducada" widgetVar="dlgSesion"
+		closable="false" resizable="false" closeOnEscape="false"
+		id="dlgSesion" modal="true" appendTo="@(body)" responsive="true">
+		<h:form id="formSesion">
+			<h:panelGrid columns="1" cellspacing="5">
+				<h:outputText
+					value="La sesión ha caducado, por favor, pulse sobre el siguiente botón para volver a acceder a la aplicación." />
+				<p:commandButton value="Volver a acceder"
+					style="margin-top:10px;float:right" action="#{loginBean.efectuarSalir}" />	
+			</h:panelGrid>
+		</h:form>
+	</p:dialog>
+
+</h:body>
+
+</html>
